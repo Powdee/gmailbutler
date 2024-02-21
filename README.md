@@ -7,8 +7,8 @@ Deletion of all unread messages in Gmail using GmailAPI written in Go.
 Make sure you have installed `Go` lang on your machine. You can do so here: https://go.dev/doc/install.
 Run
 
-```bash
-	go install
+```shell
+go install
 ```
 
 ### Enable the API
@@ -20,19 +20,19 @@ Run
 
 ### Build script
 
-```bash
-	go build -o build/gmailbutler
+```shell
+go build -o build/gmailbutler
 ```
 
 ### Run script
 
-```bash
-	./build/gmailbutler
+```shell
+./build/gmailbutler
 ```
 
 ### OR use Bash Script
 
-```bash
-	chmod +x run.sh
-	./run.sh
+```shell
+chmod +x run.sh
+./run.sh
 ```
