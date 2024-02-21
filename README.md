@@ -32,6 +32,8 @@ go build -o build/gmailbutler
 
 ### OR use Bash Script
 
+This should work only on MacOS.
+
 ```shell
 chmod +x run.sh
 ./run.sh
