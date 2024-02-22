@@ -24,17 +24,34 @@ go install
 go build -o build/gmailbutler
 ```
 
-### Run script
+### Run script on MacOS
 
 ```shell
 ./build/gmailbutler
 ```
 
-### OR use Bash Script
-
-This should work only on MacOS.
+### OR use Bash Script on MacOS
 
 ```shell
 chmod +x run.sh
 ./run.sh
 ```
+
+### Run script on Windows
+
+```shell
+./build/gmailbutler.exe
+```
+
+### Testing
+
+```shell
+go test .
+```
+
+### TODO
+
+- [] add cli ability to specify how many unreads emails it should delete
+- [] add cli ability to specify timeframe from-to with dates
+- [] delete labeled emails
+- [] create notification system to push notification if email contains specific characters in email
