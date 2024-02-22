@@ -54,4 +54,4 @@ go test .
 - [] add cli ability to specify how many unreads emails it should delete
 - [] add cli ability to specify timeframe from-to with dates
 - [] delete labeled emails
-- [] create notification system to push notification if email contains specific characters in email
+- [] create push notification system for emails containing specific characters in subject and body
