@@ -4,19 +4,17 @@ import (
 	"fmt"
 	"log"
 	"strings"
-
-	"google.golang.org/api/gmail/v1"
 )
 
-func deleteUnreadEmails(srv *gmail.Service, userId string) {
+func deleteUnreadEmails(srv GmailService, userId string) {
 	var allUnreadMessageIds []string
 	nextPageToken := ""
 	loadingMessage := "Loading unread emails"
 	dots := ""
 
 	for {
-		fmt.Printf("\r%s%s   ", loadingMessage, dots) // Print loading message with dynamic dots
-		r, err := srv.Users.Messages.List(userId).Q("is:unread").MaxResults(500).PageToken(nextPageToken).Do()
+		fmt.Printf("\r%s%s   ", loadingMessage, dots)
+		r, err := srv.ListMessages("me", "is:unread", 500, nextPageToken)
 		if err != nil {
 			log.Fatalf("Unable to retrieve unread emails: %v", err)
 		}
@@ -44,7 +42,7 @@ func deleteUnreadEmails(srv *gmail.Service, userId string) {
 		return
 	}
 
-	err := srv.Users.Messages.BatchDelete(userId, &gmail.BatchDeleteMessagesRequest{Ids: allUnreadMessageIds}).Do()
+	err := srv.BatchDeleteMessages("me", allUnreadMessageIds)
 	if err != nil {
 		log.Fatalf("Unable to delete unread emails: %v", err)
 	}

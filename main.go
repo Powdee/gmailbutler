@@ -28,6 +28,8 @@ func main() {
 		log.Fatalf("Unable to retrieve Gmail client: %v", err)
 	}
 
+	gmailService := NewGmailServiceWrapper(srv)
+
 	user := "me"
-	deleteUnreadEmails(srv, user)
+	deleteUnreadEmails(gmailService, user)
 }
